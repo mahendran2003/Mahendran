@@ -1,0 +1,43 @@
+import { useState } from 'react'
+
+function DataBinding() {
+    const [inputValue, setInputValue] = useState('');
+    const handleform = (event) => {
+        setInputValue(event.target.value);
+    }
+    return (
+        <div>
+            <h>Data Binding</h>
+            <hr />
+            <label>
+                Enter value
+            </label>
+            <input type="text"
+                value={inputValue}
+                onChange={handleform}
+            />
+            <h2>Data:{inputValue}</h2>
+        </div>
+    )
+}
+
+function DynamicRendering() {
+    var isValid = 'valid';
+    if (isValid) {
+        return <h2>IS PASSED</h2>
+    }
+    return <h2>IS FAILED</h2>
+}
+function Dynamic() {
+    const [isValid, setIsValid] = useState(true)
+    if (isValid) {
+        return <h1>TEST IS PASSED</h1>
+    }
+    return (
+        <div>
+            <h2>NO IS FAILED</h2>
+            <button onClick={() => setIsValid(false)} Click></button>
+        </div>
+    )
+}
+export { DataBinding, DynamicRendering, Dynamic };
